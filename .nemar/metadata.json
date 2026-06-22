@@ -2,6 +2,8 @@
   "version": "2.0",
   "pipeline_stage": "validated",
   "title": "Inner Speech",
+  "description": "A multiclass electroencephalography dataset of inner speech commands acquired from ten subjects using 136-channel surface EEG. The dataset encompasses three related paradigms: inner speech, pronounced speech, and visualized conditions, with four directional commands (up, down, right, left) totaling 5,640 trials. This resource addresses the scarcity of publicly available EEG datasets for inner speech recognition and supports the development of brain-computer interfaces and investigation of neural mechanisms underlying the inner voice phenomenon.",
+  "methods_description": "Surface electroencephalography was recorded from ten subjects using a 136-channel acquisition system. Three experimental paradigms were employed: inner speech, pronounced speech, and visualized conditions. Subjects performed four directional commands (up, down, right, left) across multiple trials.",
   "license": "CC0",
   "dataset_type": "raw",
   "authors": {
@@ -11,12 +13,31 @@
     "Juan Kamienkowski": {},
     "Ruben Spies": {}
   },
-  "related_identifiers": [
+  "keywords": [
     {
-      "identifier": "10.18112/openneuro.ds003626.v2.0.0",
-      "identifier_type": "DOI",
-      "relation_type": "IsIdenticalTo"
+      "term": "Electroencephalography",
+      "subject_scheme": "MeSH",
+      "value_uri": "http://id.nlm.nih.gov/mesh/D004569"
     },
+    {
+      "term": "inner speech"
+    },
+    {
+      "term": "Brain-Computer Interfaces",
+      "subject_scheme": "MeSH",
+      "value_uri": "http://id.nlm.nih.gov/mesh/D062207"
+    },
+    {
+      "term": "motor imagery"
+    },
+    {
+      "term": "EEG classification"
+    },
+    {
+      "term": "neural decoding"
+    }
+  ],
+  "related_identifiers": [
     {
       "identifier": "https://github.com/nemarDatasets/on003626",
       "identifier_type": "URL",
@@ -31,15 +52,20 @@
       "identifier": "10.1101/2021.04.19.440473",
       "identifier_type": "DOI",
       "relation_type": "IsDescribedBy"
+    },
+    {
+      "identifier": "10.18112/openneuro.ds003626.v2.0.0",
+      "identifier_type": "DOI",
+      "relation_type": "IsDerivedFrom"
     }
   ],
   "resource_type_general": "Dataset",
+  "resource_type_specific": "EEG Dataset",
   "modalities": [
     "eeg"
   ],
-  "resource_type_specific": "EEG Dataset",
   "sizes": [
-    "0.0 KB (1 files)"
+    "26.4 GB (181 files)"
   ],
   "formats": [
     ".bdf",
@@ -48,39 +74,8 @@
     ".gitattributes",
     ".json",
     ".md",
-    ".pkl"
+    ".pkl",
+    ".yml"
   ],
-  "description": "A multiclass electroencephalography dataset comprising 10 subjects performing inner speech, pronounced speech, and visualized speech tasks. The dataset includes 5,640 trials recorded with 136-channel EEG systems across four directional commands (up, down, left, right). This resource addresses the scarcity of publicly available EEG datasets for inner speech recognition and supports the development of brain-computer interface technologies and investigation of neural mechanisms underlying inner vocalization.",
-  "methods_description": "Surface electroencephalography was acquired using a 136-channel EEG system from 10 subjects performing three experimental paradigms: inner speech (imagined vocalization), pronounced speech (overt vocalization), and visualized condition (visual imagery). Subjects executed four directional commands (up, down, left, right) across 5,640 total trials.",
-  "keywords": [
-    {
-      "term": "EEG"
-    },
-    {
-      "term": "inner speech"
-    },
-    {
-      "term": "Brain-Computer Interfaces",
-      "subject_scheme": "MeSH",
-      "value_uri": "http://id.nlm.nih.gov/mesh/D062207"
-    },
-    {
-      "term": "Electroencephalography",
-      "subject_scheme": "MeSH",
-      "value_uri": "http://id.nlm.nih.gov/mesh/D004569"
-    },
-    {
-      "term": "speech imagery"
-    },
-    {
-      "term": "motor imagery"
-    },
-    {
-      "term": "speech decoding"
-    },
-    {
-      "term": "BCI"
-    }
-  ],
-  "source_hash": "4e63cd28bd090015c07981bbe9b6ee0bdc13a051bb997b48eef66150d74afcfd"
+  "source_hash": "26d4d10ceb74195a811cbf07093e5d202cc5ff83feada854fd832753a365ebd4"
 }
