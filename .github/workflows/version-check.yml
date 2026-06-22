@@ -1,0 +1,48 @@
+name: Version Check
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  check-version:
+    name: version-check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check version bump
+        run: |
+          # PR-branch version
+          PR_VERSION=$(jq -r '.Version // "0.0.0"' dataset_description.json)
+
+          # main-branch version
+          git fetch origin main
+          git checkout origin/main -- dataset_description.json 2>/dev/null || echo '{}' > dataset_description.json
+          MAIN_VERSION=$(jq -r '.Version // "0.0.0"' dataset_description.json)
+          git checkout HEAD -- dataset_description.json
+
+          echo "Main version: $MAIN_VERSION"
+          echo "PR version: $PR_VERSION"
+
+          # Require valid semver X.Y.Z that strictly increments over main.
+          if ! [[ "$PR_VERSION" =~ ^[0-9]{1,9}\.[0-9]{1,9}\.[0-9]{1,9}$ ]]; then
+            echo "::error::Version '$PR_VERSION' in dataset_description.json is not valid semver (expected X.Y.Z). Use 'nemar dataset release' to set it."
+            exit 1
+          fi
+          MAIN_SEMVER="$MAIN_VERSION"
+          [[ "$MAIN_SEMVER" =~ ^[0-9]{1,9}\.[0-9]{1,9}\.[0-9]{1,9}$ ]] || MAIN_SEMVER="0.0.0"
+          IFS=. read -r PMAJ PMIN PPAT <<< "$PR_VERSION"
+          IFS=. read -r MMAJ MMIN MPAT <<< "$MAIN_SEMVER"
+          GT=0
+          if [ "$PMAJ" -gt "$MMAJ" ]; then GT=1
+          elif [ "$PMAJ" -eq "$MMAJ" ] && [ "$PMIN" -gt "$MMIN" ]; then GT=1
+          elif [ "$PMAJ" -eq "$MMAJ" ] && [ "$PMIN" -eq "$MMIN" ] && [ "$PPAT" -gt "$MPAT" ]; then GT=1
+          fi
+          if [ "$GT" -ne 1 ]; then
+            echo "::error::Version must be a strict increment over the main version $MAIN_SEMVER (got '$PR_VERSION'). Use 'nemar dataset release' to bump."
+            exit 1
+          fi
+          echo "Version check passed: $MAIN_SEMVER -> $PR_VERSION"
