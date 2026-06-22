@@ -1,0 +1,31 @@
+{
+  "version": "2.0",
+  "dataset_id": "on003626",
+  "source": "openneuro",
+  "source_id": "ds003626",
+  "title": "Inner Speech",
+  "authors": {
+    "Nicolas Nieto": {},
+    "Victoria Peterson": {},
+    "Hugo Rufiner": {},
+    "Juan Kamienkowski": {},
+    "Ruben Spies": {}
+  },
+  "license": "CC0",
+  "dataset_type": "raw",
+  "related_identifiers": [
+    {
+      "identifier": "10.18112/openneuro.ds003626.v2.0.0",
+      "identifier_type": "DOI",
+      "relation_type": "IsIdenticalTo"
+    }
+  ],
+  "pipeline_stage": "seeded",
+  "bids_version": "1.4",
+  "recording_modality": [
+    "eeg"
+  ],
+  "datatypes": [
+    "eeg"
+  ]
+}
