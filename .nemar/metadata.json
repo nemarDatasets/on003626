@@ -2,7 +2,7 @@
   "version": "2.0",
   "pipeline_stage": "validated",
   "title": "Inner Speech",
-  "description": "A multiclass electroencephalography dataset of inner speech commands acquired from ten subjects using 136-channel surface EEG. The dataset encompasses three related paradigms: inner speech, pronounced speech, and visualized conditions, with four directional commands (up, down, right, left) totaling 5,640 trials. This resource addresses the scarcity of publicly available EEG datasets for inner speech recognition and supports the development of brain-computer interfaces and investigation of neural mechanisms underlying the inner voice phenomenon.",
+  "description": "An open-access EEG dataset for inner speech recognition recorded from ten participants with a 136-channel acquisition system. It covers three paradigms (inner speech, pronounced speech, and visualized condition) with four command classes (Up, Down, Right, Left) across 5640 trials. It is intended to support brain-computer interface development and the study of the neural mechanisms of the inner voice.",
   "methods_description": "Surface electroencephalography was recorded from ten subjects using a 136-channel acquisition system. Three experimental paradigms were employed: inner speech, pronounced speech, and visualized conditions. Subjects performed four directional commands (up, down, right, left) across multiple trials.",
   "license": "CC0",
   "dataset_type": "raw",
@@ -15,36 +15,32 @@
   },
   "keywords": [
     {
-      "term": "Electroencephalography",
-      "subject_scheme": "MeSH",
-      "value_uri": "http://id.nlm.nih.gov/mesh/D004569"
+      "term": "EEG"
     },
     {
       "term": "inner speech"
     },
     {
-      "term": "Brain-Computer Interfaces",
+      "term": "brain-computer interface"
+    },
+    {
+      "term": "speech recognition"
+    },
+    {
+      "term": "pronounced speech"
+    },
+    {
+      "term": "visualized condition"
+    },
+    {
+      "term": "Electroencephalography",
       "subject_scheme": "MeSH",
-      "value_uri": "http://id.nlm.nih.gov/mesh/D062207"
-    },
-    {
-      "term": "motor imagery"
-    },
-    {
-      "term": "EEG classification"
-    },
-    {
-      "term": "neural decoding"
+      "value_uri": "http://id.nlm.nih.gov/mesh/D004569"
     }
   ],
   "related_identifiers": [
     {
       "identifier": "https://github.com/nemarDatasets/on003626",
-      "identifier_type": "URL",
-      "relation_type": "IsDescribedBy"
-    },
-    {
-      "identifier": "https://nemar.org/dataexplorer/detail?dataset_id=on003626",
       "identifier_type": "URL",
       "relation_type": "IsDescribedBy"
     },
@@ -57,6 +53,11 @@
       "identifier": "10.18112/openneuro.ds003626.v2.0.0",
       "identifier_type": "DOI",
       "relation_type": "IsDerivedFrom"
+    },
+    {
+      "identifier": "https://nemar.org/dataset/on003626",
+      "identifier_type": "URL",
+      "relation_type": "IsDescribedBy"
     }
   ],
   "resource_type_general": "Dataset",
@@ -65,7 +66,7 @@
     "eeg"
   ],
   "sizes": [
-    "26.4 GB (181 files)"
+    "24.61 GB (181 files)"
   ],
   "formats": [
     ".bdf",
@@ -75,6 +76,7 @@
     ".json",
     ".md",
     ".pkl",
+    ".tsv",
     ".yml"
   ],
   "source_hash": "26d4d10ceb74195a811cbf07093e5d202cc5ff83feada854fd832753a365ebd4"
